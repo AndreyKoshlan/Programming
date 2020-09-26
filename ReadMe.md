@@ -10,4 +10,4 @@
 | Практическая 3 - [[C++]](./Practice/03/C++/) [[Python]](./Practice/03/Python/) ||
 | Практическая 4 - [[C++]](./Practice/04/C++/) [[Python]](./Practice/04/Python/) ||
 | Практическая 5 - [[C++]](./Practice/05/C++/) [[Python]](./Practice/05/Python/) ||
-| Практическая 10 - [[C++]](../../tree/master/Practice/10/C++/C++/) [[Python]](./Practice/10/Python/) ||
+| Практическая 10 - [[C++]](../../tree/master/Practice/10/C%2B%2B/C%2B%2B/) [[Python]](./Practice/10/Python/) ||
