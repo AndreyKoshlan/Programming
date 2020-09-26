@@ -37,11 +37,15 @@ void Calculate(double a, double b, double c) {
 int main() {
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
-	double a, b, c;
-	std::cin >> a >> b >> c;
-	try {
-		Calculate(a, b, c);
-	} catch (const char* msg) {
-		std::cout << msg << "\n";
+	while (true) {
+		double a, b, c;
+		std::cin >> a >> b >> c;
+		try {
+			Calculate(a, b, c);
+			break;
+		}
+		catch (const char* msg) {
+			std::cout << msg << "\n";
+		}
 	}
 }

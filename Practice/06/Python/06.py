@@ -14,10 +14,12 @@ def Calculate(a, b, c):
 			print('x2 =', x2)
 
 
-a = float(input())
-b = float(input())
-c = float(input())
-try:
-	Calculate(a, b, c)
-except:
-	print('Отсутствуют действительные корни')
+while True:
+	a = float(input())
+	b = float(input())
+	c = float(input())
+	try:
+		Calculate(a, b, c)
+		break
+	except:
+		print('Отсутствуют действительные корни')
