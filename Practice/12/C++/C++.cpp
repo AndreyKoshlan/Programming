@@ -10,14 +10,17 @@ int main()
 	SetConsoleCP(1251);
 	int f;
 	long long value = 1;
-	std::cout << "Введите факториал: ";
-	std::cin >> f;
-	if (f > VARIABLE_LIMIT) {
-		std::cout << "Переполнение" << std::endl;
-		return 0;
+	while (true) {
+		std::cout << "Введите факториал: ";
+		std::cin >> f;
+		if (f > VARIABLE_LIMIT) {
+			std::cout << "Переполнение" << std::endl;
+			continue;
+		}
+		for (int i = 1; i <= f; i++) {
+			value *= i;
+		}
+		std::cout << value << std::endl;
+		break;
 	}
-	for (int i = 1; i <= f; i++) {
-		value *= i;
-	}
-	std::cout << value;
 }
