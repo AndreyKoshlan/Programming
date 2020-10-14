@@ -1,4 +1,5 @@
-s, l1, r1, l2, r2 =  map(int, input().split())
+print('Введите числа s, l₁, r₁, l₂, r₂:')
+s, l1, r1, l2, r2 =  map(int, input('> ').split())
 x = l1
 y = r2
 
