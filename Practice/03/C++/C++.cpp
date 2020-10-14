@@ -2,51 +2,48 @@
 
 #include <iostream>
 #include <Windows.h>
+#include <string>
+#include <bitset>
 using namespace std;
+
+template<typename T>
+string GetVariableWithTypeString(T Var) {
+	return '(' + string(typeid(T).name()) + ')' + to_string(Var);
+}
+
+template<typename T, typename U, typename V>
+string GetEqualString(T a, U b, string op, V Output, bool divisionByZero = false) {
+	string rez = GetVariableWithTypeString(a) + ' ' + op + ' ' + 
+				 GetVariableWithTypeString(b) + " = ";
+	rez += (!divisionByZero ? to_string(Output) : "Ошибка в вычислении");
+	return rez;
+}
+
+template<typename T, typename U>
+void Calculate(T a, U b) {
+	cout << GetEqualString(a, b, "+", a + b) << endl;
+	cout << GetEqualString(a, b, "-", a - b) << endl;
+	cout << GetEqualString(a, b, "*", a * b) << endl;
+	if ((b != 0) || (typeid(T) != typeid(int)) || (typeid(U) != typeid(int)))
+		cout << GetEqualString(a, b, "/", a / b) << endl;
+	else
+		cout << GetEqualString(a, b, "/", 0, true) << endl;
+	cout << endl;
+}
 
 int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	
-	double double_a;
-	double double_b;
-	cin >> double_a >> double_b;
-	int int_a = trunc(double_a);
-	int int_b = trunc(double_b);
-	
-	printf("(int)%d %s (int)%d = ", int_a, "+", int_b);
-	cout << int_a + int_b << "\n";
-	printf("(int)%d %s (int)%d = ", int_a, "-", int_b);
-	cout << int_a - int_b << "\n";
-	printf("(int)%d %s (int)%d = ", int_a, "*", int_b);
-	cout << int_a * int_b << "\n";
-	printf("(int)%d %s (int)%d = ", int_a, "/", int_b);
-	cout << int_a / int_b << "\n\n";
+	double a;
+	double b;
+	cout << "Введите число A: ";
+	cin >> a;
+	cout << "Введите число B: ";
+	cin >> b;
 
-	printf("(double)%f %s (double)%f = ", double_a, "+", double_b);
-	cout << double_a + double_b << "\n";
-	printf("(double)%f %s (double)%f = ", double_a, "-", double_b);
-	cout << double_a - double_b << "\n";
-	printf("(double)%f %s (double)%f = ", double_a, "*", double_b);
-	cout << double_a * double_b << "\n";
-	printf("(double)%f %s (double)%f = ", double_a, "/", double_b);
-	cout << double_a / double_b << "\n\n";
-
-	printf("(int)%d %s (double)%f = ", int_a, "+", double_b);
-	cout << int_a + double_b << "\n";
-	printf("(int)%d %s (double)%f = ", int_a, "-", double_b);
-	cout << int_a - double_b << "\n";
-	printf("(int)%d %s (double)%f = ", int_a, "*", double_b);
-	cout << int_a * double_b << "\n";
-	printf("(int)%d %s (double)%f = ", int_a, "/", double_b);
-	cout << int_a / double_b << "\n\n";
-
-	printf("(double)%f %s (int)%d = ", double_a, "+", int_b);
-	cout << double_a + int_b << "\n";
-	printf("(double)%f %s (int)%d = ", double_a, "-", int_b);
-	cout << double_a - int_b << "\n";
-	printf("(double)%f %s (int)%d = ", double_a, "*", int_b);
-	cout << double_a * int_b << "\n";
-	printf("(double)%f %s (int)%d = ", double_a, "/", int_b);
-	cout << double_a / int_b << "\n\n";
+	Calculate((int)a, (int)b);
+	Calculate(a, b);
+	Calculate((int)a, b);
+	Calculate(a, (int)b);
 }
