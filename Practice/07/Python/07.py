@@ -1,8 +1,13 @@
 import math
 
+def isTrianagleExist(a, b, c):
+	return (a + b > c) and (b + c > a) and (a + c > b)
+
 def CalcAreaByLengths(a, b, c):
-	p = (a+b+c)/2
+	if not isTrianagleExist(a, b, c):
+		raise Exception('Треугольник не существует')
 	try:
+		p = (a+b+c)/2
 		return math.sqrt(p*(p-a)*(p-b)*(p-c))
 	except:
 		raise Exception('Невозможно вычислить площадь треугольника')

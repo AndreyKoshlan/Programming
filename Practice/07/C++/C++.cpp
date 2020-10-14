@@ -6,6 +6,10 @@ typedef struct COORDP {
 	double Y;
 };
 
+bool isTrianagleExist(double a, double b, double c) {
+	return (a + b > c) && (b + c > a) && (a + c > b);
+}
+
 double* ReadLengthData() {
 	std::cout << "Введите длины сторон треугольника:\n";
 	double x[3];
@@ -27,6 +31,9 @@ double* ReadCoordData() {
 }
 
 double CalcAreaByLengths(double a, double b, double c) {
+	if (!isTrianagleExist(a, b, c)) {
+		throw "Треугольник не существует";
+	}
 	double p = (a + b + c) / 2;
 	double area2 = p * (p - a) * (p - b) * (p - c);
 	if (area2 < 0) {
