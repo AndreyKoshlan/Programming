@@ -8,6 +8,7 @@ int main()
 	double a, b;
 	char op;
 	while (true) {
+		std::cout << "Введите выражение: ";
 		std::cin >> a >> op >> b;
 		switch (op) {
 		case '+':
