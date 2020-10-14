@@ -1,4 +1,7 @@
-orig_a, orig_b = map(int, input().split())
+print('Введите число A:', end=' ')
+orig_a = int(input())
+print('Введите число B:', end=' ')
+orig_b = int(input())
 
 #С дополнительной переменной
 a = orig_a

@@ -9,7 +9,10 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	int orig_a, orig_b;
-	cin >> orig_a >> orig_b;
+	cout << "Введите число A: ";
+	cin >> orig_a;
+	cout << "Введите число B: ";
+	cin >> orig_b;
 	
 	//С дополнительной переменной
 	{
