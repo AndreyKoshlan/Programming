@@ -6,11 +6,11 @@ int main()
 {
 	SetConsoleOutputCP(CP_UTF8);
 	SetConsoleCP(CP_UTF8);
-	int s, l1, r1, l2, r2;
+	long long s, l1, r1, l2, r2;
 	std::cout << "Введите числа s, l₁, r₁, l₂, r₂:\n" << "> ";
 	std::cin >> s >> l1 >> r1 >> l2 >> r2;
-	int x = l1;
-	int y = r2;
+	long long x = l1;
+	long long y = r2;
 	
 	if (x + y < s) {
 		x = min(s - y, r1);
@@ -23,6 +23,5 @@ int main()
 	} else {
 		std::cout << -1;
 	}
-    	return 0;
+    return 0;
 }
-
