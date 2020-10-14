@@ -1,6 +1,9 @@
 import math
 
 def Calculate(a, b, c):
+	if (a == 0 and b == 0 and c == 0):
+		print('Результат не определен')
+		return
 	if a == 0:
 		print('x =', -c/b)
 	else:
@@ -15,8 +18,11 @@ def Calculate(a, b, c):
 
 
 while True:
+	print('Введите число A: ')
 	a = float(input())
+	print('Введите число B: ')
 	b = float(input())
+	print('Введите число C: ')
 	c = float(input())
 	try:
 		Calculate(a, b, c)

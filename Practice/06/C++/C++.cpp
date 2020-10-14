@@ -8,7 +8,11 @@ double Div(double x, double y) {
 }
 
 void CalculateLinearEq(double a, double b) {
-	std::cout << "x = " << Div(-b, a) << "\n";
+	if ((a == 0) && (b == 0)) {
+		std::cout << "Результат не определен" << "\n";
+	} else {
+		std::cout << "x = " << Div(-b, a) << "\n";
+	}
 }
 
 void CalculateQuadraticEq(double a, double b, double c) {
@@ -39,7 +43,12 @@ int main() {
 	SetConsoleCP(1251);
 	while (true) {
 		double a, b, c;
-		std::cin >> a >> b >> c;
+		std::cout << "Введите число A: ";
+		std::cin >> a;
+		std::cout << "Введите число B: ";
+		std::cin >> b;
+		std::cout << "Введите число C: ";
+		std::cin >> c;
 		try {
 			Calculate(a, b, c);
 			break;
