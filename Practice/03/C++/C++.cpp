@@ -3,7 +3,6 @@
 #include <iostream>
 #include <Windows.h>
 #include <string>
-#include <bitset>
 using namespace std;
 
 template<typename T>
