@@ -38,7 +38,7 @@ def Debug(cmaze, X, Y):
 		print(cmaze[i])
 	print()
 	print('X:', X, 'Y:', Y)
-	os.system("timeout -t 0 > null")
+	os.system("timeout -t 0 > nul")
 
 def GetByCoord(cmaze, X, Y):
 	return cmaze[Y][X]
