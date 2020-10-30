@@ -1,6 +1,5 @@
 def bmi(weight: float, height: float):
-	heightm = height/100
-	return weight / (heightm**2)
+	return weight / (height**2)
 
 def print_bmi(bmi: float):
 	if bmi < 18.5:
@@ -14,4 +13,4 @@ def print_bmi(bmi: float):
 
 print('Введите вес и рост:')
 weight, height = map(float, input().split())
-print_bmi(bmi(weight, height))
+print_bmi(bmi(weight, height/100))
