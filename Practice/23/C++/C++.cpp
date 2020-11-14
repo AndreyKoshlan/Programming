@@ -4,7 +4,8 @@
 #include "taylor.h"
 #include "combinations.h"
 
-const double pi = 3.14159265358979323846;
+//const double pi = 3.14159265358979323846;
+const double pi = 3.141592;
 const int FACTORIALS_LIMIT = 10;
 const double TAYLOR_STEP = pi / 180;
 const double TAYLOR_LIMIT = pi / 4;
