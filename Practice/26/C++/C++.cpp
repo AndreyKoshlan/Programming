@@ -116,11 +116,11 @@ int main()
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
 
-	std::cout << "~ • ~ INT ~ • ~\n";
+	std::cout << ":.:.:.:.:.: Double :.:.:.:.:.:\n";
 	
-	Output_Result(1); //Число
+	Output_Result((double)1.0); //Число Double
 
-	std::cout << "~ • ~ STRING ~ • ~\n";
+	std::cout << ":.:.:.:.:.: String :.:.:.:.:.:\n";
 
-	Output_Result('1'); //Буква
+	Output_Result(std::string("1")); //Строка String
 }
