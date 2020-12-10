@@ -4,7 +4,6 @@
 #include <algorithm>
 
 typedef std::vector<double> _stack;
-typedef std::vector<int> list;
 const unsigned int MAXK = 5;
 
 int main()
@@ -12,7 +11,6 @@ int main()
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
 	_stack stack(MAXK /*5*/, INFINITY);
-	list lst;
 	int n, x;
 
 	std::cout << "Введите число N: ";
