@@ -8,7 +8,9 @@ typedef std::vector<string> webhdata;
 
 class WebHook {
 public:
+	void SendToAll(json state, string user_id);
 	int Size();
+	int Search(string val);
 	string GetJSON();
 	void Erase(unsigned int id);
 	string Get(unsigned int id);
@@ -22,14 +24,47 @@ private:
 	const string field = "WebHooks";
 };
 
+WebHook wh;
+
+void WebHook::SendToAll(json state, string user_id) {
+	state["user_id"] = user_id;
+	for (int i = 0; i < this->data.size(); i++) {
+		string url = this->data.at(i);
+		Client cli(url.c_str());
+		std::cout << "Sending state to " + url + "...";
+		std::stringstream ss;
+		ss << state;
+		string strstate = "({\"send\": \"" + ss.str() + "\"})";
+		auto res = cli.Post("/", strstate, "text/json");
+		if (res) {
+			if (res->status == 200) {
+				std::cout << " [OK]\n";
+			} else {
+				std::cout << " [FAIL]\nStatus code: " << res->status << std::endl;
+			}
+		} else {
+			std::cout << "[FAIL]\nError code: " << res.error() << std::endl;
+		}
+	}
+}
+
 int WebHook::Size() {
 	return this->data.size();
+}
+
+int WebHook::Search(string val) {
+	for (int i = 0; i < this->data.size(); i++) {
+		if (this->data.at(i) == val) {
+			return i;
+		}
+	}
+	return -1;
 }
 
 string WebHook::GetJSON() {
 	json j;
 	j["WebHooks"] = json::array();
-	for (int i = 0; i < data.size(); i++) {
+	for (int i = 0; i < this->data.size(); i++) {
 		j["WebHooks"].push_back(this->data[i]);
 	}
 	std::stringstream ss;

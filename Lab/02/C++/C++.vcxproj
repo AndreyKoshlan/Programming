@@ -156,6 +156,7 @@
     <ClCompile Include="C++.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dialogs.h" />
     <ClInclude Include="WebHook.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
