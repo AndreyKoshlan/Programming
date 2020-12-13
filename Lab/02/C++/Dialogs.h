@@ -170,7 +170,7 @@ string TAlice::GetResponseMain(string body, json j, json tokens, json state) {
 		return CreateResponse(rez, state, buttons);
 	}
 	if (GetWordsFromTokens(tokens, 0, 1) == u8"покупка завершена") {
-		wh.SendToAll(state, j["session"]["user"]["user_id"]);
+		wh.SendToAll(state["check"], j["session"]["user"]["user_id"]);
 		return CreateResponse(u8"Заходите еще", state, buttons, true);
 	}
 	if (/* COMMAND UNKNOWN */1) {

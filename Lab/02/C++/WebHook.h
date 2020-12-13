@@ -27,15 +27,18 @@ private:
 WebHook wh;
 
 void WebHook::SendToAll(json state, string user_id) {
-	state["user_id"] = user_id;
+	json fulljson;
+	fulljson["user_id"] = user_id;
+	fulljson["check"] = state;
 	for (int i = 0; i < this->data.size(); i++) {
 		string url = this->data.at(i);
 		Client cli(url.c_str());
+		std::cout << "Post data: " << fulljson << "\n";
 		std::cout << "Sending state to " + url + "...";
 		std::stringstream ss;
-		ss << state;
-		string strstate = "({\"send\": \"" + ss.str() + "\"})";
-		auto res = cli.Post("/", strstate, "text/json");
+		ss << fulljson;
+		//string strstate = "({\"json\": \"" + ss.str() + "\"})";
+		auto res = cli.Post("/", ss.str(), "application/json");
 		if (res) {
 			if (res->status == 200) {
 				std::cout << " [OK]\n";

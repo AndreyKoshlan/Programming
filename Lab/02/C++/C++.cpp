@@ -25,7 +25,6 @@ string readFile(string filename) {
 }
 
 void process_post(const Request& req, Response& res) {
-	std::cout << req.remote_addr;
 	if (req.method != "POST")
 		return;
 
