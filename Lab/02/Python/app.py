@@ -26,8 +26,13 @@ def makeTable(sheet):
 	return sheet
 
 def getIdEmptyCell(sheet):
-	i = 1
-	while not (sheet[i][3].value is None):
+	i = 2
+	bstyle = Border(left=Side(style='thin'), 
+                     right=Side(style='thin'), 
+                     top=Side(style='thin'), 
+                     bottom=Side(style='thin'))
+	#while not (sheet[i][3].value is None):
+	while sheet[i][3].border == bstyle:
 		i += 1
 	return i
 
@@ -59,9 +64,12 @@ def saveJson(sheet):
 		sheet[y][1].value = buf[i]["user_id"]
 		sheet[y][2].value = buf[i]["datetime"]
 		oldy = y
-		for item in buf[i]["check"]:
-			sheet[y][3].value = item["item"]
-			sheet[y][4].value = item["price"]
+		try:
+			for item in buf[i]["check"]:
+				sheet[y][3].value = item["item"]
+				sheet[y][4].value = item["price"]
+				y += 1
+		except:
 			y += 1
 		sheet.merge_cells(start_row=oldy, start_column=1, end_row=y-1, end_column=1)
 		sheet.merge_cells(start_row=oldy, start_column=2, end_row=y-1, end_column=2)

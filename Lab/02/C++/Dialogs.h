@@ -183,7 +183,8 @@ string TAlice::GetResponseHelp(string body, json j, json tokens, json state, boo
 	string rez;
 	json buttons = CreateButtonsHelp(state);
 	if (start) {
-		rez = u8"Корзина. Поможет организовать покупки.\nО чём рассказать подробнее?";
+		rez = u8"Корзина. Поможет организовать покупки.\nПомощь. Поможет разобраться с командами навыка\nМолчать/говорить.\
+Поможет настроить озвучивание сообщений\nО чём рассказать подробнее?";
 		return CreateResponse(rez, state, buttons);
 	}
 	if (GetWordFromTokens(tokens, 0) == u8"молчать") {
