@@ -149,5 +149,11 @@ int main() {
 				badguys.push_back(v[i]);
 		}
 	}
-	std::cout << BozoSort(badguys);
+
+	//Vector
+	std::cout << BozoSort(badguys) << std::endl;
+
+	//An element
+	srand(time(NULL));
+	std::cout << badguys[rand() % badguys.size()];
 }
