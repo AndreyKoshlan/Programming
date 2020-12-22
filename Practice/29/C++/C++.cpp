@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include <Windows.h>
+#include <time.h> 
 
 using std::string;
 using std::vector;
@@ -21,6 +22,41 @@ struct Student {
 	byte group;
 	map<string, byte> exams;
 };
+
+bool operator>(Student a, Student b) {
+	return a.name > b.name;
+}
+
+bool operator<(Student a, Student b) {
+	return a.name < b.name;
+}
+
+template<typename T>
+bool isSorted(std::vector<T> v, bool order) {
+	if (v.size() <= 1)
+		return true;
+	for (int i = 1; i < v.size(); i++) {
+		if (order) {
+			if (v[i] < v[i - 1]) return false;
+		}
+		else {
+			if (v[i] > v[i - 1]) return false;
+		}
+	}
+	return true;
+}
+
+//BozoSort std::vector<int>
+template<typename T>
+std::vector<T> BozoSort(std::vector<T> v, bool order = true) {
+	srand(time(NULL));
+	while (!isSorted(v, order)) {
+		int r1 = rand() % v.size();
+		int r2 = rand() % v.size();
+		std::swap(v[r1], v[r2]);
+	}
+	return v;
+}
 
 string get_table_border() {
 	return '+' + string(MAX_SIZE_NAME, '-')  + 
@@ -74,13 +110,44 @@ ostream& operator<<(ostream& os, vector<Student> s) {
 int main() {
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
-	vector<Student> v = { 
-							{ "Molyneux P", 1, { {"mathematics", 5}, {"physics", 5},
-												 {"history", 5}, {"programming", 5} }
-							},
-							{ "Molyneux P", 1, { {"mathematics", 5}, {"physics", 5},
-												 {"history", 5}, {"programming", 5} }
-							}
-						};
-	std::cout << v;
+	vector<Student> v = {
+					{ "Allen K", 9, { {"mathematics", 4}, {"physics", 3},
+										 {"history", 4}, {"programming", 3} }
+					},
+					{ "Hill F", 5, { {"mathematics", 5}, {"physics", 4},
+										 {"history", 2}, {"programming", 5} }
+					},
+					{ "Anderson R", 1, { {"mathematics", 5}, {"physics", 5},
+										 {"history", 5}, {"programming", 5} }
+					},
+					{ "Adams K", 2, { {"mathematics", 3}, {"physics", 5},
+										 {"history", 4}, {"programming", 3} }
+					},
+					{ "Brown D", 1, { {"mathematics", 5}, {"physics", 5},
+										 {"history", 5}, {"programming", 5} }
+					},
+					{ "Davis A", 5, { {"mathematics", 3}, {"physics", 2},
+										 {"history", 3}, {"programming", 5} }
+					},
+					{ "Clark B", 4, { {"mathematics", 4}, {"physics", 4},
+										 {"history", 4}, {"programming", 4} }
+					},
+					{ "Flores M", 8, { {"mathematics", 2}, {"physics", 2},
+										 {"history", 2}, {"programming", 2} }
+					},
+					{ "Carter J", 7, { {"mathematics", 5}, {"physics", 3},
+										 {"history", 4}, {"programming", 3} }
+					},
+					{ "Campbell C", 8, { {"mathematics", 5}, {"physics", 3},
+										 {"history", 4}, {"programming", 2} }
+					}
+	};
+	vector<Student> badguys;
+	for (int i = 0; i < v.size(); i++) {
+		if ((v[i].exams["mathematics"] == 2) || (v[i].exams["physics"] == 2) ||
+			(v[i].exams["history"] == 2) || (v[i].exams["programming"] == 2)) {
+				badguys.push_back(v[i]);
+		}
+	}
+	std::cout << BozoSort(badguys);
 }
