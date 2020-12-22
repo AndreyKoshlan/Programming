@@ -153,7 +153,13 @@ int main() {
 	//Vector
 	std::cout << BozoSort(badguys) << std::endl;
 
+	std::cout << "Expulsion" << "\n\n";
+
 	//An element
 	srand(time(NULL));
-	std::cout << badguys[rand() % badguys.size()];
+	if (badguys.size() > 0) {
+		std::cout << badguys[rand() % badguys.size()];
+	} else {
+		std::cout << "Not found";
+	}
 }
