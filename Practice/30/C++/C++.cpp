@@ -1,5 +1,8 @@
 ﻿#include <iostream>
+#include <vector>
 #include <Windows.h>
+
+using std::vector;
 
 struct Item {
 	enum {
@@ -30,9 +33,10 @@ struct Item {
 	} Item;
 };
 
+typedef vector<Item> LootBox;
+
 int main()
 {
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
-	Item LootBox;
 }
