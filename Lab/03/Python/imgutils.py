@@ -2,7 +2,7 @@ from tkinter import *
 from PIL import Image, ImageTk
 
 def image_load(filename, cropx1 = 0, cropy1 = 0, cropx2 = 0, cropy2 = 0, w = 0, h = 0):
-	x = Image.open("data\\"+filename).convert("RGBA")
+	x = Image.open("./data/"+filename).convert("RGBA")
 	if cropx2+cropy2 > 0:
 		x = x.crop((cropx1, cropy1, cropx2, cropy2))
 	if w+h > 0:
