@@ -105,6 +105,7 @@ def game_destroy_cells_proc(root, cell, do_step):
 				t.join()
 			except:
 				pass
+
 	x = cell.x
 	y = cell.y
 	rez = []
@@ -140,6 +141,7 @@ def game_step_draw_proc(root, cell, selected, ball_size,\
 	for x in cell:
 		ui.draw_cell(root, [x], selected = selected, ball = x.ball, ball_size = ball_size,\
 					animation = animation, only_visual_change = only_visual_change)
+		game_destroy_cells(root, x, False)
 	if get_random_free_cell(root) == None:
 		game_over(root)
 
@@ -157,6 +159,6 @@ def game_step(root):
 				True, False))
 	t.daemon = True
 	t.start()
-	for i in range(len(cells)):
-		game_destroy_cells(root, cells[i], False)
+	#for i in range(len(cells)):
+	#	game_destroy_cells(root, cells[i], False)
 	game_new_buffer(root)
