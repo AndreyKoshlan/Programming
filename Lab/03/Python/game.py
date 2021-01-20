@@ -150,7 +150,7 @@ def game_step(root):
 	for i in range(BALL_COUNT):
 		cell = get_random_free_cell(root)
 		if cell == None:
-			return
+			break
 		cell.ball = root.next_balls[i]
 		cells += [cell]
 	t = threading.Thread(target=game_step_draw_proc, args=(root, cells, False, 0,\
