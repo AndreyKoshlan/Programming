@@ -11,21 +11,27 @@ int main()
 		std::cout << "Введите выражение: ";
 		std::cin >> a >> op >> b;
 		switch (op) {
-		case '+':
-			std::cout << a + b;
-			break;
-		case '-':
-			std::cout << a - b;
-			break;
-		case '*':
-			std::cout << a * b;
-			break;
-		case '/':
-			if (b == 0) {
-				std::cout << "Деление на \"0\" невозможно\n";
+			case '+':
+				std::cout << a + b;
+				break;
+			case '-':
+				std::cout << a - b;
+				break;
+			case '*':
+				std::cout << a * b;
+				break;
+			case '/':
+				if (b == 0) {
+					std::cout << "Деление на \"0\" невозможно\n";
+					continue;
+				}
+				else {
+					std::cout << a / b;
+					break;
+				}
+			default:
+				std::cout << "Неизвестный оператор\n";
 				continue;
-			} else
-				std::cout << a / b;
 		}
 		break;
 	}
