@@ -27,8 +27,10 @@ int* sort(int* arr, size_t length) {
 }
 
 void print(int* arr, size_t length) {
+    std::cout << "[";
     for (size_t i = 0; i < length; i++) {
-        std::cout << arr[i] << " ";
+        std::cout << arr[i]
+                  << (i < length-1 ? ", " : "]\n");
     }
 }
 
