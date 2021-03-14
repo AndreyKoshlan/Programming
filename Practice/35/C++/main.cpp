@@ -1,6 +1,5 @@
 #include <windows.h>
 #include <iostream>
-#include <algorithm>
 
 struct IntArray {
   int *data;
