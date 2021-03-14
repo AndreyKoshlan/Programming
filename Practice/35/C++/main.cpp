@@ -87,7 +87,6 @@ void resize(IntArray& arr, int newSize) {
 }
 
 /** Освобождает память занятую массивом. Поле data становится равным nullptr, поле size становится равным нулю. Предусмотреть случай попытки удаления уже удалённого массива */
-
 void destroy(IntArray* arr) {
     if (arr->data != nullptr) {
         delete[] arr->data;
