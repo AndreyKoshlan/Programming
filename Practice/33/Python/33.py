@@ -15,7 +15,7 @@ def sort(arr):
 	return arr
 
 def print(arr):
-	original_print(' '.join(map(str, arr)))
+	original_print(arr)
 
 length = int(input('Введите длину массива: '))
 begin = int(input('Введите начальный член прогрессии: '))
