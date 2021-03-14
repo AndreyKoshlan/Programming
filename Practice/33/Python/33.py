@@ -1,6 +1,6 @@
 original_print = print
 
-def create(length, begin, step):
+def create(length, begin = 0, step = 0):
 	if step == 0:
 		return length*[begin]
 	else:
