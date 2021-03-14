@@ -110,8 +110,7 @@ void destroy(IntArray& arr) {
     }
 }
 
-int main()
-{
+int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
     IntArray arr = {0, 0};
