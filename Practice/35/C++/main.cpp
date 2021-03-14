@@ -113,7 +113,7 @@ void destroy(IntArray& arr) {
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
-    IntArray arr = {0, 0};
+    IntArray arr = {};
     create(arr, 30);
     for (int i = 0; i < 30; i++) {
         set(arr, i, i+1);
