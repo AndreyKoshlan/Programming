@@ -12,7 +12,7 @@ int* create(size_t length, int begin = 0, int step = 0) {
 int* sort(int* arr, size_t length) {
     for (size_t p1 = 1; p1 < length; p1++) {
         size_t p2 = p1;
-        while ((p2 > 0) & (arr[p2] <= arr[p2-1])) {
+        while ((p2 > 0) && (arr[p2] <= arr[p2-1])) {
             std::swap(arr[p2], arr[p2-1]);
             p2--;
         }
