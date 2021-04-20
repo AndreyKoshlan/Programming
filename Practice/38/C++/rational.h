@@ -10,9 +10,11 @@ public:
     Rational(int a, int b);
 
     Rational simplify();
+    Rational abs();
     static int gcd(int a, int b);
     int numerator();
     int denominator();
+    int sign();
     bool isNaN();
 
     operator double() const { return double(a) / b; }
